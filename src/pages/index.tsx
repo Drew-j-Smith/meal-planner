@@ -1,10 +1,11 @@
 import * as React from "react"
+import Header from "../component/header"
 
 const IndexPage = () => {
   return (
     <main>
       <title>Home Page</title>
-      <h1 className="m-2 p-2 bg-red-500 hover:bg-red-700 rounded max-w-sm">Home Page</h1>
+      <Header title="Meal Planner" links={[{ name: "link1", path: "/"}, { name: "link2", path: "/"}, { name: "link3", path: "/"}, { name: "link4", path: "/"}, { name: "link5", path: "/"}]}></Header>
     </main>
   )
 }
