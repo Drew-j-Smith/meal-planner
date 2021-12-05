@@ -43,8 +43,8 @@ class RandomSelector extends React.Component<RandomSelectorProps, RandomSelector
                 <div className="h-20 relative shadow">
                 {
                     this.state.selectedElements.map((el, index)=> <div key={index} className={
-                        `absolute w-full duration-300 top-${ index === this.state.currElement - 1 || (this.state.currElement === 0 && index === cycles - 1) ? 
-                        10 : (index === this.state.currElement ? 5 : 0) }
+                        `absolute w-full duration-300 ${ index === this.state.currElement - 1 || (this.state.currElement === 0 && index === cycles - 1) ? 
+                        "top-10" : (index === this.state.currElement ? "top-5" : "top-0") }
                         transition-all ${index === this.state.currElement ? "opacity-100" : "opacity-0"}`}>{el}</div>)
                 }
                 </div>
