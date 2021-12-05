@@ -10,8 +10,7 @@ const IndexPage = () => {
         { name: "link1", path: "/"},
         { name: "link2", path: "/"},
         { name: "link3", path: "/"},
-        { name: "link4", path: "/"},
-        { name: "link5", path: "/"}]}></Header>
+        { name: "link4", path: "/"}]}></Header>
     <RandomSelector elements={["1", "2", "3", "4", "test", "hello world"]}></RandomSelector>
     </main>
   )
