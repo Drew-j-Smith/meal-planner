@@ -20,7 +20,7 @@ class RandomSelector extends React.Component<RandomSelectorProps, RandomSelector
     }
 
     render() {
-        return <div className="flex flex-row md:flex-col text-lg sm:text-2xl p-8 place-items-center">
+        return <div className="flex flex-row md:flex-col text-lg sm:text-2xl md:p-8 p-4 place-items-center">
             <button onClick={() => {
                 if (this.state.currElement !== -1 && this.state.currElement !== cycles) return;
                 this.setState({
@@ -41,7 +41,7 @@ class RandomSelector extends React.Component<RandomSelectorProps, RandomSelector
                         }
                     }, 310 * (i + 1));
                 }
-            }} className={"w-36 h-15 shadow hover:shadow-lg rounded-lg bg-gray-200 active:bg-gray-300 m-2"}>
+            }} className={"sm:w-36 w-24 h-15 shadow hover:shadow-lg rounded-lg bg-gray-200 active:bg-gray-300 m-2"}>
                 <div>Pick new</div>
             </button>
             <div className="h-20 w-40 shadow p-5 m-2 overflow-hidden">
