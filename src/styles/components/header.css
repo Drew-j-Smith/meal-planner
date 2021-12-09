@@ -1,42 +1,14 @@
-.backgroud-fade {
-    z-index: -10;
+
+.content-col {
+    transition: left 300ms;
 }
 
-
-@media (max-width: 768px) {
-    .content-col {
-        left: -60px;
-        transition: left 300ms;
-        transition-timing-function: ease-in-out;
-        top: 0px;
-    }
-
-    .sidebar:hover .content-col,
-    .sidebar:focus-within .content-col {
-        left: 0;
-    }
-
-    .backgroud-fade {
-        background-color: black;
-        opacity: 0;
-        transition: left 300ms;
-        transition-timing-function: ease-in-out;
-        pointer-events: none;
-    }
-
-    .sidebar:hover + .backgroud-fade,
-    .sidebar:focus-within + .backgroud-fade {
-        opacity: 0.5;
-        z-index: 10;
-    }
-
-    .content-row {
-        display: none;
-    }
+.sidebar:hover .content-col,
+.sidebar:focus-within .content-col {
+    left: 0;
 }
 
-@media (min-width: 768px) {
-    .sidebar {
-        display: none;
-    }
+.sidebar:hover + .backgroud-fade,
+.sidebar:focus-within + .backgroud-fade {
+    opacity: 0.5;
 }
