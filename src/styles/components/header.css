@@ -8,9 +8,23 @@
     }
 
     .sidebar:hover .content-col,
-    .sidebar:focus-within .content-col,
-    .sidebar .content-col:hover {
+    .sidebar:focus-within .content-col {
         left: 0;
+    }
+
+    .backgroud-fade {
+        background-color: black;
+        opacity: 0;
+        transition: left 300ms;
+        transition-timing-function: ease-in-out;
+        z-index: -10;
+        pointer-events: none;
+    }
+
+    .sidebar:hover + .backgroud-fade,
+    .sidebar:focus-within + .backgroud-fade {
+        opacity: 0.5;
+        z-index: 10;
     }
 
     .content-row {
