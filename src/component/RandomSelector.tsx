@@ -39,7 +39,7 @@ class RandomSelector extends React.Component<RandomSelectorProps, RandomSelector
                             }
                             console.log(this.state.selectedElement);
                         }
-                    }, 310 * (i + 1));
+                    }, 400 * (i + 1));
                 }
             }} className={"sm:w-36 w-24 h-15 shadow hover:shadow-lg rounded-lg bg-gray-200 active:bg-gray-300 m-2"}>
                 <div>Pick new</div>
