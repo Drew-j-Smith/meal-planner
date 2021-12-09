@@ -1,0 +1,12 @@
+:root {
+    font-size: medium;
+    --large-screensize: 900px;
+}
+
+@media screen and (min-width: 900px) {
+    :root {
+        font-size: x-large;
+        --display-block-large: block;
+        --display-none-large: none;
+    }
+}

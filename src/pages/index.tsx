@@ -1,6 +1,7 @@
 import * as React from "react"
 import Header from "../component/header"
 import RandomSelector from "../component/RandomSelector"
+import "../styles/pages/index.css"
 
 const IndexPage = () => {
   return (

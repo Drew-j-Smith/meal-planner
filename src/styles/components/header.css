@@ -1,14 +1,91 @@
 
-.content-col {
-    transition: left 300ms;
+.header-main-container {
+    --backgroud-color: rgb(255, 251, 235);
+    background-color: var(--backgroud-color);
 }
 
-.sidebar:hover .content-col,
-.sidebar:focus-within .content-col {
+/* used to center the header and give it a max width */
+.header-secondary-container {
+    display: flex;
+    width: 100%;
+    max-width: calc(var(--large-screensize) * 1.5);
+    margin: auto;
+}
+
+/* contains the side menu, hamburger button and background fade */
+.header-sidebar {
+    display: var(--display-none-large, block);
+}
+
+.header-hamburger {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0.75rem;
+    fill: gray
+}
+
+/* contains the side menu */
+.header-col {
+    position: fixed;
+    transition: left 300ms;
+    transition-timing-function: ease-in-out;
+    width: 14rem;
+    height: 100%;
+    left: -14rem;
+    top: 0rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--backgroud-color);
+    z-index: 50;
+}
+
+.header-sidebar:hover .header-col,
+.header-sidebar:focus-within .header-col {
     left: 0;
 }
 
-.sidebar:hover + .backgroud-fade,
-.sidebar:focus-within + .backgroud-fade {
+/* used to fade the background to dark */
+.header-backgroud-fade {
+    z-index: 10;
+    pointer-events: none;
+    transition-property: opacity;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    background-color: black;
+    opacity: 0;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.header-sidebar:hover + .header-backgroud-fade,
+.header-sidebar:focus-within + .header-backgroud-fade {
     opacity: 0.5;
+}
+
+.header-title {
+    font-size: 2rem;
+    padding: 0.5rem;
+}
+
+.header-link {
+    font-size: 1.5rem;
+    padding: 1rem;
+    transition-property: background-color;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+}
+
+.header-link:hover {
+    background-color: rgb(253, 230, 138);
+}
+
+/* For the links and titles in the row */
+.header-secondary-container > .header-link {
+    display: var(--display-block-large, none);
+}
+.header-secondary-container > .header-title {
+    flex-grow: 1;
 }
