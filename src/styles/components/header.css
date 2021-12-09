@@ -1,3 +1,7 @@
+.backgroud-fade {
+    z-index: -10;
+}
+
 
 @media (max-width: 768px) {
     .content-col {
@@ -17,7 +21,6 @@
         opacity: 0;
         transition: left 300ms;
         transition-timing-function: ease-in-out;
-        z-index: -10;
         pointer-events: none;
     }
 
