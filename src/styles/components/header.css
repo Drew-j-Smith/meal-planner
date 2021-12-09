@@ -4,6 +4,7 @@
         left: -60px;
         transition: left 300ms;
         transition-timing-function: ease-in-out;
+        top: 0px;
     }
 
     .sidebar:hover .content-col,

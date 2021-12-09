@@ -24,7 +24,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                             <rect y="60" width="100" height="20"></rect>
                         </svg> 
                     </button>
-                    <div className="content-col absolute w-max h-full flex flex-col shadow bg-yellow-50 z-100">
+                    <div className="content-col fixed w-max h-full flex flex-col shadow bg-yellow-50 z-100">
                         { this.props.links.map((el) => 
                             <Link key={el.name} className="text-xl p-2 hover:bg-yellow-200 transition-colors ease-linear duration-300" to={el.path}>{el.name}</Link>)
                         }
@@ -32,10 +32,10 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                     
                 </div>
                 
-                <h1 className="content-row flex-grow md:text-5xl sm:text-2xl sm:p-5 p-3">{this.props.title}</h1>
+                <h1 className="flex-grow md:text-5xl sm:text-2xl sm:p-5 p-3">{this.props.title}</h1>
                 {
                     this.props.links.map((el) => 
-                        <Link key={el.name} className="text-4xl p-5 hover:bg-yellow-200 transition-colors ease-linear duration-300" to={el.path}>{el.name}</Link>) 
+                        <Link key={el.name} className="content-row text-4xl p-5 hover:bg-yellow-200 transition-colors ease-linear duration-300" to={el.path}>{el.name}</Link>) 
                 }
             </div>
         </div>
