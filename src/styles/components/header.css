@@ -39,7 +39,6 @@
     z-index: 50;
 }
 
-.header-sidebar:hover .header-col,
 .header-sidebar:focus-within .header-col {
     left: 0;
 }
@@ -47,7 +46,10 @@
 /* used to fade the background to dark */
 .header-backgroud-fade {
     z-index: 10;
+
+    /* allows the doc to still be responsive */
     pointer-events: none;
+
     transition-property: opacity;
     transition-duration: 300ms;
     transition-timing-function: ease-in-out;
@@ -60,9 +62,11 @@
     height: 100%;
 }
 
-.header-sidebar:hover + .header-backgroud-fade,
 .header-sidebar:focus-within + .header-backgroud-fade {
     opacity: 0.5;
+
+    /* prevents the user from clicking anything on the doc */
+    pointer-events: all;
 }
 
 .header-title {
@@ -72,7 +76,7 @@
 
 .header-link {
     font-size: 1.5rem;
-    padding: 1rem;
+    padding: 0.75rem 1rem;
     transition-property: background-color;
     transition-duration: 300ms;
     transition-timing-function: ease-in-out;
