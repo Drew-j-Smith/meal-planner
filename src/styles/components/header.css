@@ -2,6 +2,7 @@
 .header-main-container {
     --backgroud-color: rgb(255, 251, 235);
     background-color: var(--backgroud-color);
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* used to center the header and give it a max width */
@@ -26,6 +27,7 @@
 
 /* contains the side menu */
 .header-col {
+    box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.2);
     position: fixed;
     transition: left 300ms;
     transition-timing-function: ease-in-out;
@@ -63,7 +65,7 @@
 }
 
 .header-sidebar:focus-within + .header-backgroud-fade {
-    opacity: 0.5;
+    opacity: 0.3;
 
     /* prevents the user from clicking anything on the doc */
     pointer-events: all;

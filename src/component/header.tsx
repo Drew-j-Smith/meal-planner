@@ -14,7 +14,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     }
 
     render() {
-        return <div className="header-main-container shadow">
+        return <div className="header-main-container">
             <div className={"header-secondary-container"}>
                 <div className="header-sidebar">
                     <button>
@@ -24,7 +24,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                             <rect y="60" width="100" height="20"></rect>
                         </svg> 
                     </button>
-                    <div className="header-col shadow">
+                    <div className="header-col">
                         <h1 className="header-title">{this.props.title}</h1>
                         { this.props.links.map((el) => 
                             <Link key={el.name} className="header-link" to={el.path}>{el.name}</Link>)
