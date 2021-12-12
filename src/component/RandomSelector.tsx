@@ -1,9 +1,9 @@
-import React from "react"
+import React, { CSSProperties } from "react"
+import "../styles/components/RandomSelector.css"
 
 type RandomSelectorState = {
-    currElement: number;
+    active: boolean;
     selectedElements: Array<string>;
-    selectedElement: string;
 };
 
 type RandomSelectorProps = {
@@ -11,54 +11,56 @@ type RandomSelectorProps = {
     callback?: (seleced: string) => void;
 };
 
+export interface TextCSS extends CSSProperties {
+    '--text-index': number;
+  }
+
 const cycles = 10;
 
 class RandomSelector extends React.Component<RandomSelectorProps, RandomSelectorState> {
     constructor(props: RandomSelectorProps) {
         super(props)
-        this.state = { currElement: -1, selectedElements: [], selectedElement: "" }
+        this.state = { active: false, selectedElements: [""] }
     }
 
     render() {
-        return <div className="flex flex-row md:flex-col text-lg sm:text-2xl md:p-8 p-4 place-items-center">
+        return <div className="random-selector-container">
             <button onClick={() => {
-                if (this.state.currElement !== -1 && this.state.currElement !== cycles) return;
-                this.setState({
-                    currElement: -1,
-                    selectedElements: Array(cycles).fill(null).map(() =>
-                        this.props.elements[Math.floor(Math.random() * this.props.elements.length)])
+                if (this.state.active) return;
+                this.setState((prevState) => {
+                    return {
+                        active: true,
+                        selectedElements: Array(cycles).fill(null).map((el, index) => {
+                            if (index === 0) {
+                                return prevState.selectedElements[cycles - 1];
+                            }
+                            return this.props.elements[Math.floor(Math.random() * this.props.elements.length)];
+                        })
+                    }
                 });
 
-                for (let i = 0; i <= cycles; i++) {
-                    setTimeout(() => {
-                        this.setState({ currElement: i })
-                        if (i === cycles) {
-                            this.setState((prevState) => { return { selectedElement: prevState.selectedElements[cycles - 1] } })
-                            if (this.props.callback) {
-                                this.props.callback(this.state.selectedElement);
-                            }
-                            console.log(this.state.selectedElement);
-                        }
-                    }, 400 * (i + 1));
-                }
-            }} className={"sm:w-36 w-24 h-15 shadow hover:shadow-lg rounded-lg bg-gray-200 active:bg-gray-300 m-2"}>
+                setTimeout(() => {
+                    this.setState({ active: false });
+                    if (this.props.callback) {
+                        this.props.callback(this.state.selectedElements[cycles - 1]);
+                    }
+                    console.log(this.state.selectedElements[cycles - 1]);
+                }, 400 * cycles);
+
+            }} className="random-selector-btn">
                 <div>Pick new</div>
             </button>
-            <div className="h-20 w-40 shadow p-5 m-2 overflow-hidden">
-                <div className="relative">
-                    {
-                        this.state.currElement < cycles && this.state.selectedElements.map((el, index) => <div key={index} className={
-                            `absolute w-full text-center duration-300 ease-in transform ${index < this.state.currElement ?
-                                "translate-y-10" : (index === this.state.currElement ? "" : "-translate-y-10")}
-                        transition-all ${index === this.state.currElement ? "" : "opacity-0"}`}>{el}</div>)
-                    }
-                    {
-                        (this.state.currElement === -1 || this.state.currElement === cycles) && 
-                        <div className={`absolute w-full text-center ${this.state.currElement === -1 ? "duration-300 ease-in transform translate-y-10 opacity-0" : ""}`}>
-                            { this.state.selectedElement }
-                        </div>
-                    }
-                </div>
+            <div className="random-selector-display">
+                {
+                    this.state.active &&
+                    this.state.selectedElements.map(
+                        (el, index) => 
+                            <div key={index} className="random-selector-display-text" style={{'--text-index': index} as TextCSS}>{el}</div>
+                        )
+                }
+                {
+                    !this.state.active && <div>{this.state.selectedElements[cycles - 1]}</div>
+                }
             </div>
         </div>
     }

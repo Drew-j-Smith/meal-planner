@@ -1,0 +1,87 @@
+.random-selector-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    /* TODO switch to col */
+    flex-direction: row; 
+    padding: 1em;
+    place-items: center center;
+}
+
+.random-selector-btn {
+    width: 6rem;
+    height: 2rem;
+    margin: 1rem;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    background-color: rgb(229, 231, 235);
+    transition-property: box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+}
+
+.random-selector-btn:active {
+    background-color: rgb(209, 213, 219);
+}
+
+.random-selector-btn:hover {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.random-selector-display {
+    height: 5rem;
+    width: 10rem;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.random-selector-display > * {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+}
+
+@keyframes move-in {
+    0% {
+        opacity: 0;
+        transform: translate(0, -2rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes move-out {
+    0% {
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0, 2rem);
+    }
+}
+
+.random-selector-display-text:first-child {
+    animation-name: move-out;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+}
+
+.random-selector-display-text:last-child {
+    animation-name: move-in;
+    animation-duration: 300ms;
+}
+
+.random-selector-display-text {
+    animation-name: move-in, move-out;
+    animation-fill-mode: backwards, forwards;
+    animation-timing-function: ease-in;
+    animation-duration: 300ms, 300ms;
+    animation-delay: calc(var(--text-index) * 400ms), calc((var(--text-index) + 1) * 400ms);
+}
