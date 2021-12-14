@@ -1,6 +1,5 @@
 :root {
     font-size: medium;
-    font-family: inherit;
     line-height: inherit;
     --large-screensize: 900px;
 }
