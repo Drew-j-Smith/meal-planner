@@ -18,6 +18,7 @@
     transition-property: box-shadow;
     transition-duration: 300ms;
     transition-timing-function: ease-in-out;
+    cursor: pointer;
 }
 
 .random-selector-btn:active {

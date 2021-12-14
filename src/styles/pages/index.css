@@ -1,12 +1,16 @@
-:root {
-    font-size: medium;
-    --large-screensize: 900px;
+.index-main {
+    display: flex;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    max-width: calc(var(--large-screensize) * 1.5);
 }
 
-@media screen and (min-width: 900px) {
-    :root {
-        font-size: x-large;
-        --display-block-large: block;
-        --display-none-large: none;
-    }
+.index-selectors {
+    display: grid;
+
+    /* TODO switch from row to cols */
+    grid-template-rows: repeat(4, auto);
+    justify-content: center;
+    width: 100%;
 }

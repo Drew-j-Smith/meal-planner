@@ -12,8 +12,8 @@ const IndexPage = () => {
         { name: "link2", path: "/"},
         { name: "link3", path: "/"},
         { name: "link4", path: "/"}]}></Header>
-    <div className="index-main grid grid-rows-1 place-items-center overflow-y-hidden">
-      <div className="grid md:grid-cols-4 grid-rows-4 place-items-center max-w-5xl xl:shadow">
+    <div className="index-main">
+      <div className="index-selectors">
         <RandomSelector elements={["1", "2", "3", "4", "test", "hello world"]}></RandomSelector>
         <RandomSelector elements={["1", "2", "3", "4", "test", "hello world"]}></RandomSelector>
         <RandomSelector elements={["1", "2", "3", "4", "test", "hello world"]}></RandomSelector>
