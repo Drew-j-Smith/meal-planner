@@ -30,12 +30,11 @@ class RandomSelector extends React.Component<RandomSelectorProps, RandomSelector
                 this.setState((prevState) => {
                     return {
                         active: true,
-                        selectedElements: Array(cycles).fill(null).map((el, index) => {
-                            if (index === 0) {
-                                return prevState.selectedElements[cycles - 1];
-                            }
-                            return this.props.elements[Math.floor(Math.random() * this.props.elements.length)];
-                        })
+                        selectedElements: [prevState.selectedElements[cycles - 1]].concat
+                            (Array(cycles - 1).fill(null).map(() =>
+                                this.props.elements[Math.floor(Math.random() * this.props.elements.length)]
+                            )
+                        )
                     }
                 });
 
