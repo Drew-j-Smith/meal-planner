@@ -47,7 +47,7 @@ class RandomSelector extends React.Component<RandomSelectorProps, RandomSelector
                 }, 400 * cycles);
 
             }} className="random-selector-btn">
-                <div>Pick new</div>
+                Pick new
             </button>
             <div className="random-selector-display">
                 {
