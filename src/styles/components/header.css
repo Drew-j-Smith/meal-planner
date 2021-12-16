@@ -47,12 +47,10 @@
 }
 
 /* used to fade the background to dark */
-.header__backgroud-fade {
+.header__sidebar::after {
+    content: "";
     z-index: 10;
-
-    /* allows the doc to still be responsive */
     pointer-events: none;
-
     transition-property: opacity;
     transition-duration: 300ms;
     transition-timing-function: ease-in-out;
@@ -65,10 +63,8 @@
     height: 100%;
 }
 
-.header__sidebar:focus-within + .header__backgroud-fade {
+.header__sidebar:focus-within::after {
     opacity: 0.3;
-
-    /* prevents the user from clicking anything on the doc */
     pointer-events: all;
 }
 

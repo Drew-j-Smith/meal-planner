@@ -31,7 +31,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                         }
                     </div>
                 </div>
-                <div className="header__backgroud-fade"></div>
                 
                 <h1 className="header__title header__title--row">{this.props.title}</h1>
                 {
