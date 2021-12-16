@@ -1,12 +1,12 @@
 
-.header-main-container {
+.header__container {
     --backgroud-color: rgb(255, 251, 235);
     background-color: var(--backgroud-color);
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* used to center the header and give it a max width */
-.header-secondary-container {
+.header__secondary-container {
     display: flex;
     width: 100%;
     max-width: calc(var(--large-screensize) * 1.5);
@@ -14,11 +14,11 @@
 }
 
 /* contains the side menu, hamburger button and background fade */
-.header-sidebar {
+.header__sidebar {
     display: var(--display-none-large, block);
 }
 
-.header-hamburger {
+.header__hamburger {
     width: 2.5rem;
     height: 2.5rem;
     margin: 0.75rem;
@@ -27,7 +27,7 @@
 }
 
 /* contains the side menu */
-.header-col {
+.header__col {
     box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.2);
     position: fixed;
     transition: left 300ms;
@@ -42,12 +42,12 @@
     z-index: 50;
 }
 
-.header-sidebar:focus-within .header-col {
+.header__sidebar:focus-within .header__col {
     left: 0;
 }
 
 /* used to fade the background to dark */
-.header-backgroud-fade {
+.header__backgroud-fade {
     z-index: 10;
 
     /* allows the doc to still be responsive */
@@ -65,21 +65,25 @@
     height: 100%;
 }
 
-.header-sidebar:focus-within + .header-backgroud-fade {
+.header__sidebar:focus-within + .header__backgroud-fade {
     opacity: 0.3;
 
     /* prevents the user from clicking anything on the doc */
     pointer-events: all;
 }
 
-.header-title {
+.header__title {
     font-size: 2rem;
     padding: 0.5rem;
     margin: unset;
     font-weight: inherit;
 }
 
-.header-link {
+.header__title--row {
+    flex-grow: 1;
+}
+
+.header__link {
     font-size: 1.5rem;
     padding: 0.75rem 1rem;
     transition-property: background-color;
@@ -88,18 +92,14 @@
     text-decoration: unset;
 }
 
-.header-link:hover {
+.header__link:hover {
     background-color: rgb(253, 230, 138);
 }
 
-.header-link:visited {
+.header__link:visited {
     color: unset;
 }
 
-/* For the links and titles in the row */
-.header-secondary-container > .header-link {
+.header__link--row {
     display: var(--display-block-large, none);
-}
-.header-secondary-container > .header-title {
-    flex-grow: 1;
 }

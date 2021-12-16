@@ -1,6 +1,6 @@
 import * as React from "react"
 import Header from "../component/header"
-import RandomSelector from "../component/RandomSelector"
+import RandomSelector from "../component/random-selctor"
 import "../styles/pages/index.css"
 
 const IndexPage = () => {
@@ -12,8 +12,8 @@ const IndexPage = () => {
         { name: "link2", path: "/"},
         { name: "link3", path: "/"},
         { name: "link4", path: "/"}]}></Header>
-    <div className="index-main">
-      <div className="index-selectors">
+    <div className="index-page__main">
+      <div className="index-page__selectors">
         <RandomSelector elements={["1", "2", "3", "4", "test", "hello world"]}></RandomSelector>
         <RandomSelector elements={["1", "2", "3", "4", "test", "hello world"]}></RandomSelector>
         <RandomSelector elements={["1", "2", "3", "4", "test", "hello world"]}></RandomSelector>

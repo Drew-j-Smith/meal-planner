@@ -14,29 +14,29 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     }
 
     render() {
-        return <div className="header-main-container">
-            <div className={"header-secondary-container"}>
-                <div className="header-sidebar">
+        return <div className="header__container">
+            <div className={"header__secondary-container"}>
+                <div className="header__sidebar">
                     <button>
-                        <svg className="header-hamburger" viewBox="0 0 100 80">
+                        <svg className="header__hamburger" viewBox="0 0 100 80">
                             <rect width="100" height="20"></rect>
                             <rect y="30" width="100" height="20"></rect>
                             <rect y="60" width="100" height="20"></rect>
                         </svg> 
                     </button>
-                    <div className="header-col">
-                        <h1 className="header-title">{this.props.title}</h1>
+                    <div className="header__col">
+                        <h1 className="header__title">{this.props.title}</h1>
                         { this.props.links.map((el) => 
-                            <Link key={el.name} className="header-link" to={el.path}>{el.name}</Link>)
+                            <Link key={el.name} className="header__link" to={el.path}>{el.name}</Link>)
                         }
                     </div>
                 </div>
-                <div className="header-backgroud-fade"></div>
+                <div className="header__backgroud-fade"></div>
                 
-                <h1 className="header-title">{this.props.title}</h1>
+                <h1 className="header__title header__title--row">{this.props.title}</h1>
                 {
                     this.props.links.map((el) => 
-                        <Link key={el.name} className="header-link" to={el.path}>{el.name}</Link>) 
+                        <Link key={el.name} className="header__link header__link--row" to={el.path}>{el.name}</Link>) 
                 }
             </div>
         </div>

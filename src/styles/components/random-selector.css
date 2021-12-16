@@ -1,4 +1,4 @@
-.random-selector-container {
+.random-selector__container {
     display: flex;
     flex-wrap: wrap;
 
@@ -8,7 +8,7 @@
     place-items: center center;
 }
 
-.random-selector-btn {
+.random-selector__btn {
     width: 6rem;
     height: 2rem;
     margin: 1rem;
@@ -21,15 +21,15 @@
     cursor: pointer;
 }
 
-.random-selector-btn:active {
+.random-selector__btn:active {
     background-color: rgb(209, 213, 219);
 }
 
-.random-selector-btn:hover {
+.random-selector__btn:hover {
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-.random-selector-display {
+.random-selector__display {
     height: 5rem;
     width: 10rem;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
@@ -38,7 +38,7 @@
     position: relative;
 }
 
-.random-selector-display > * {
+.random-selector__selected {
     padding-top: 1.75rem;
     padding-bottom: 1.75rem;
     text-align: center;
@@ -68,18 +68,18 @@
     }
 }
 
-.random-selector-display-text:first-child {
+.random-selector__selected--animate:first-child {
     animation-name: move-out;
     animation-duration: 300ms;
     animation-fill-mode: forwards;
 }
 
-.random-selector-display-text:last-child {
+.random-selector__selected--animate:last-child {
     animation-name: move-in;
     animation-duration: 300ms;
 }
 
-.random-selector-display-text {
+.random-selector__selected--animate {
     animation-name: move-in, move-out;
     animation-fill-mode: backwards, forwards;
     animation-timing-function: ease-in;

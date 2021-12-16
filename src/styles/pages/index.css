@@ -1,4 +1,4 @@
-.index-main {
+.index-page__main {
     display: flex;
     margin: auto;
     height: 100%;
@@ -6,7 +6,7 @@
     max-width: calc(var(--large-screensize) * 1.5);
 }
 
-.index-selectors {
+.index-page__selectors {
     display: grid;
 
     /* TODO switch from row to cols */

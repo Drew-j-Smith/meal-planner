@@ -1,5 +1,5 @@
 import React, { CSSProperties } from "react"
-import "../styles/components/RandomSelector.css"
+import "../styles/components/random-selector.css"
 
 type RandomSelectorState = {
     active: boolean;
@@ -24,7 +24,7 @@ class RandomSelector extends React.Component<RandomSelectorProps, RandomSelector
     }
 
     render() {
-        return <div className="random-selector-container">
+        return <div className="random-selector__container">
             <button onClick={() => {
                 if (this.state.active) return;
                 this.setState((prevState) => {
@@ -46,19 +46,19 @@ class RandomSelector extends React.Component<RandomSelectorProps, RandomSelector
                     console.log(this.state.selectedElements[cycles - 1]);
                 }, 400 * cycles);
 
-            }} className="random-selector-btn">
+            }} className="random-selector__btn">
                 Pick new
             </button>
-            <div className="random-selector-display">
+            <div className="random-selector__display">
                 {
                     this.state.active &&
                     this.state.selectedElements.map(
                         (el, index) => 
-                            <div key={index} className="random-selector-display-text" style={{'--text-index': index} as TextCSS}>{el}</div>
+                            <div key={index} className="random-selector__selected random-selector__selected--animate" style={{'--text-index': index} as TextCSS}>{el}</div>
                         )
                 }
                 {
-                    !this.state.active && <div>{this.state.selectedElements[cycles - 1]}</div>
+                    !this.state.active && <div className="random-selector__selected">{this.state.selectedElements[cycles - 1]}</div>
                 }
             </div>
         </div>
