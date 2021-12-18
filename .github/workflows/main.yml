@@ -14,9 +14,9 @@ jobs:
         with:
           node-version: '14'
 
-      - run: npm ci
-      - run: npm run build
-      - run: tsc --noEmit
+      - run: cd frontend && npm ci
+      - run: cd frontend && npm run build
+      - run: cd frontend && tsc --noEmit
 
       - uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -24,4 +24,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
       
-      - run: aws s3 sync ./public s3://drew-smith-meal-planner
+      - run: aws s3 sync ./frontend/public s3://drew-smith-meal-planner
