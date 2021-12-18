@@ -85,15 +85,12 @@
     transition-property: background-color;
     transition-duration: 300ms;
     transition-timing-function: ease-in-out;
-    text-decoration: unset;
+    text-decoration: none;
+    color: inherit;
 }
 
 .header__link:hover {
     background-color: rgb(253, 230, 138);
-}
-
-.header__link:visited {
-    color: unset;
 }
 
 .header__link--row {
