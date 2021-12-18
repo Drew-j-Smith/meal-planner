@@ -1,0 +1,11 @@
+{
+  "name": "meal-planner-backend",
+  "version": "1.0.0",
+  "description": "meal-planner-backend",
+  "private": true,
+  "main": "index.js",
+  "author": "Drew Smith",
+  "dependencies": {
+    "mongodb": "^4.2.2"
+  }
+}
