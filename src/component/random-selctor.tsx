@@ -7,45 +7,48 @@ type RandomSelectorState = {
 };
 
 type RandomSelectorProps = {
+    animationTime?: number;
+    animationDelay?: number;
+    cycles: number;
     elements: Array<string>;
     callback?: (seleced: string) => void;
 };
 
-export interface TextCSS extends CSSProperties {
-    '--text-index': number;
-  }
+interface TextCSS extends CSSProperties {
+    "--text-index": number;
+}
 
-const cycles = 10;
+export interface AnimationVariableCSS extends CSSProperties {
+    "--animation-time": number | undefined;
+    "--animation-delay": number | undefined;
+}
 
 class RandomSelector extends React.Component<RandomSelectorProps, RandomSelectorState> {
+    animationInfoStyle: AnimationVariableCSS;
+
     constructor(props: RandomSelectorProps) {
         super(props)
-        this.state = { active: false, selectedElements: [""] }
+        this.state = { active: false, selectedElements: Array(this.props.cycles).fill("") }
+
+        this.animationInfoStyle = {
+            "--animation-time": this.props.animationTime,
+            "--animation-delay": this.props.animationDelay
+        };
     }
 
     render() {
-        return <div className="random-selector__container">
+        return <div className="random-selector__container" style={this.animationInfoStyle}>
             <button onClick={() => {
                 if (this.state.active) return;
                 this.setState((prevState) => {
                     return {
                         active: true,
-                        selectedElements: [prevState.selectedElements[cycles - 1]].concat
-                            (Array(cycles - 1).fill(null).map(() =>
+                        selectedElements: prevState.selectedElements.map((el, index) => 
+                            index === 0 ? prevState.selectedElements[this.props.cycles - 1] :
                                 this.props.elements[Math.floor(Math.random() * this.props.elements.length)]
-                            )
                         )
                     }
                 });
-
-                setTimeout(() => {
-                    this.setState({ active: false });
-                    if (this.props.callback) {
-                        this.props.callback(this.state.selectedElements[cycles - 1]);
-                    }
-                    console.log(this.state.selectedElements[cycles - 1]);
-                }, 400 * cycles);
-
             }} className="random-selector__btn">
                 Pick new
             </button>
@@ -54,11 +57,19 @@ class RandomSelector extends React.Component<RandomSelectorProps, RandomSelector
                     this.state.active &&
                     this.state.selectedElements.map(
                         (el, index) => 
-                            <div key={index} className="random-selector__selected random-selector__selected--animate" style={{'--text-index': index} as TextCSS}>{el}</div>
+                            <div key={index} className="random-selector__selected random-selector__selected--animate"
+                                style={{'--text-index': index} as TextCSS} onAnimationEnd={() => { 
+                                    if (index !== this.props.cycles - 1) return;
+                                    this.setState({ active: false });
+                                    if (this.props.callback) {
+                                        this.props.callback(el);
+                                    }
+                                    console.log(el);
+                                }}>{el}</div>
                         )
                 }
                 {
-                    !this.state.active && <div className="random-selector__selected">{this.state.selectedElements[cycles - 1]}</div>
+                    !this.state.active && <div className="random-selector__selected">{this.state.selectedElements[this.props.cycles - 1]}</div>
                 }
             </div>
         </div>

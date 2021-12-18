@@ -70,19 +70,17 @@
 
 .random-selector__selected--animate:first-child {
     animation-name: move-out;
-    animation-duration: 300ms;
     animation-fill-mode: forwards;
 }
 
 .random-selector__selected--animate:last-child {
     animation-name: move-in;
-    animation-duration: 300ms;
 }
 
 .random-selector__selected--animate {
     animation-name: move-in, move-out;
     animation-fill-mode: backwards, forwards;
     animation-timing-function: ease-in;
-    animation-duration: 300ms, 300ms;
-    animation-delay: calc(var(--text-index) * 400ms), calc((var(--text-index) + 1) * 400ms);
+    animation-duration: calc(var(--animation-time) * 1ms), calc(var(--animation-time) * 1ms);
+    animation-delay: calc(var(--text-index) * var(--animation-delay) * 1ms), calc((var(--text-index) + 1) * var(--animation-delay) * 1ms);
 }
