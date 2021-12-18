@@ -13,5 +13,4 @@ module.exports = {
     },
     'gatsby-plugin-postcss',
   ],
-  pathPrefix: "/meal-planner",
 };
