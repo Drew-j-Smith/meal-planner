@@ -14,18 +14,11 @@ jobs:
         with:
           node-version: '14'
 
-      - run: cd frontend && npm ci
-      - run: cd frontend && npm run build
-      - run: cd frontend && tsc --noEmit
-
-      - run: cd backend && npm ci
-      - run: zip -r meal-planner-backend.zip ./backend
-
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
       
-      - run: aws s3 sync ./frontend/public s3://drew-smith-meal-planner
-      - run: aws lambda update-function-code --function-name arn:aws:lambda:us-east-1:787285671275:function:meal-planner --zip-file fileb://meal-planner-backend.zip --region us-east-1
+      - run: cd backend && ./deploy.sh
+      - run: cd frontend && ./deploy.sh
