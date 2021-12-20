@@ -1,6 +1,7 @@
 import { APIGatewayProxyHandler } from 'aws-lambda';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
 const axios = require("axios").default;
+require('dotenv').config()
 
 export const handler: APIGatewayProxyHandler = async (event) => {
     if (!event.queryStringParameters || !event.queryStringParameters["user_id"]) {

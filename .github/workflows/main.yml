@@ -20,5 +20,5 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
       
-      - run: cd backend && ./deploy.sh
+      - run: cd backend && ./deploy.sh ${{ secrets.AUTH0_CLIENT_ID }} ${{ secrets.AUTH0_CLIENT_SECRET }} ${{ secrets.AUTH0_DOMAIN }}
       - run: cd frontend && ./deploy.sh
