@@ -1,6 +1,7 @@
 module.exports = {
   mode: "development",
   entry: "./index.ts",
+  target: 'node',
   output: {
     filename: 'index.js',
     libraryTarget: 'commonjs2'
