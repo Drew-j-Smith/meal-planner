@@ -3,14 +3,10 @@
     --backgroud-color: rgb(255, 251, 235);
     background-color: var(--backgroud-color);
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1);
-}
-
-/* used to center the header and give it a max width */
-.header__secondary-container {
     display: flex;
     width: 100%;
-    max-width: calc(var(--large-screensize) * 1.5);
-    margin: auto;
+    /* sets the max width of the contents to --large-screensize */
+    padding: 0 max(0px, calc((100% - 1.5 * var(--large-screensize)) / 2));
 }
 
 /* contains the side menu, hamburger button and background fade */
